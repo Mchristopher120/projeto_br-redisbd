@@ -3,8 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Helvetica;
-    text-shadow: #585555 1px 1px;
-    color: #050505a9;
+    //text-shadow: #000000 1px 1px;
+    color: #0c0000a9;
   }
   
   .App {
