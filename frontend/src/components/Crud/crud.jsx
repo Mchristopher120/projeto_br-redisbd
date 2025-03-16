@@ -15,7 +15,7 @@ const UserManagement = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:5000/users");
+      const response = await fetch("http://localhost:5000/api/users");
       const data = await response.json();
       setUsers(data);
     } catch (error) {
@@ -25,7 +25,7 @@ const UserManagement = () => {
 
   const handleDelete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/users/${id}`, { method: "DELETE" });
+      await fetch(`http://localhost:5000/api/users/${id}`, { method: "DELETE" });
       fetchUsers();
     } catch (error) {
       console.error("Erro ao deletar usuário:", error);
@@ -39,7 +39,7 @@ const UserManagement = () => {
   const handleUpdate = async (event) => {
     event.preventDefault();
     try {
-      await fetch(`http://localhost:3001/users/${editingUser.id}`, {
+      await fetch(`http://localhost:5000/api/users/${editingUser.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(editingUser),

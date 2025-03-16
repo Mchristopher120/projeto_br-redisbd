@@ -11,10 +11,20 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+    
+    try {
+      const response = await fetch("http://localhost:5000/api/users", {
+        method: "POST", 
+        body: JSON.stringify({ username, email, password, age }),
+        headers: { "Content-Type": "application/json" },
+      }); 
+      const data = await response.json();
+    } catch (error) {
+      console.error("Erro ao criar usuário:", error);
+    }
 
-    console.log(username, email, password, age);
 
     alert(`Usuário cadastrado com sucesso!\nNome: ${username}\nEmail: ${email}\nIdade: ${age}`);
 

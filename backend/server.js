@@ -65,7 +65,7 @@ app.post("/api/users", async (req, res) => {
 });
 
 // Rota para deletar um usuário
-app.delete("/users/:id", async (req, res) => {
+app.delete("/api/users/:id", async (req, res) => {
   const userId = parseInt(req.params.id);
 
   try {
@@ -87,7 +87,7 @@ app.delete("/users/:id", async (req, res) => {
 });
 
 // Rota para editar um usuário
-app.put("/users/:id", async (req, res) => {
+app.put("/api/users/:id", async (req, res) => {
   const { id } = req.params;
   const { username, email, age } = req.body;
 
